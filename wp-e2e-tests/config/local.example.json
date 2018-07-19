@@ -1,0 +1,115 @@
+/**
+	Example local configuration for running the E2E tests.
+
+	<env> is the NODE_ENV environmental variable you have set.
+
+	In order to set up your own local config, follow these steps:
+
+	* Copy this file to a file named `local-<env>.json` (e.g `local-bisko.json`).
+
+	* Update the necessary keys. The configuration here overrides any keys set in `default.json` and `<env>.json`.
+
+	* Make sure to change all the passwords to something secure.
+
+	* Remove this comment :)
+*/
+{
+	"highlightElements": true,
+	"testSiteForInvites": "example.wordpress.com",
+	"testSiteForNotifications": "example.wordpress.com",
+	"privateSiteForInvites": "example.wordpress.com",
+	"passwordForNewTestSignUps":: "",
+	"storeSandboxCookieValue": "",
+	"publicizeTwitterAccount": "",
+	"slackHook": "",
+	"slackTokenForScreenshots": "",	
+	"slackChannelForScreenshots": "",
+	"mailosaurAPIKey": "",
+	"inviteInboxId": "",
+	"signupInboxId": "",
+	"domainsInboxId": "",
+	"eyesKey": "",
+	"sauceUsername": "",
+	"sauceAccessKey": "",
+	"emailPrefix": "",
+	"testAccounts": {
+		"defaultUser": [
+			"username",
+			"password"
+		],
+		"multiSiteUser": [
+			"username",
+			"password"
+		],
+		"jetpackUser": [
+			"username",
+			"password"
+		],
+		"jetpackUserPRESSABLE": [
+			"username",
+			"password"
+		],
+		"jetpackUserBLUEHOST": [
+			"username",
+			"password"
+		],
+		"jetpackUserGODADDY": [
+			"username",
+			"password"
+		],
+		"visualUser": [
+			"username",
+			"password"
+		],
+		"privateSiteUser": [
+			"username",
+			"password"
+		],
+		"commentingUser": [
+			"username",
+			"password"
+		],
+		"notificationsUser": [
+			"username",
+			"password"
+		],
+		"eurAccountUser": [
+			"username",
+			"password"
+		],
+		"audAccountUser": [
+			"username",
+			"password"
+		],
+		"cadAccountUser": [
+			"username",
+			"password"
+		],
+		"gbpAccountUser": [
+			"username",
+			"password"
+		],
+		"jpyAccountUser": [
+			"username",
+			"password"
+		],
+		"usdAccountUser": [
+			"username",
+			"password"
+		],
+		"postNUXUser": [
+			"username",
+			"password"
+		],
+		"i18nScreenshotUser": [
+			"username",
+			"password",
+			"site address or ID"
+		]
+	},
+	"restApiApplication": {
+		"client_id": "YOUR_CLIENT_ID",
+		"redirect_uri": "YOUR_REDIRECT_URI",
+		"client_secret": "YOUR_CLIENT_SECRET"
+    }
+}
