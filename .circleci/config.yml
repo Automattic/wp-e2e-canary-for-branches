@@ -35,4 +35,4 @@ jobs:
           path: wp-e2e-tests/screenshots/
 notify:
   webhooks:
-    - url: https://6a1c9ebd.ngrok.io/circleciwebhook
+    - url: https://d313e89e.ngrok.io/circleciwebhook
