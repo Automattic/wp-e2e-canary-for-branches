@@ -35,4 +35,4 @@ jobs:
           path: wp-e2e-tests/screenshots/
 notify:
   webhooks:
-    - url: https://a8c-gh-e2e-bridge.go-vip.co/circleciwebhook
+    - url: https://c9f9515d.ngrok.io/circleciwebhook
