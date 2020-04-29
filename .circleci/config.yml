@@ -14,18 +14,19 @@ jobs:
       - run: cd wp-calypso && git checkout origin/${E2E_BRANCH-master}
       - restore_cache:
           keys:
-            - v1-npmcache-{{ checksum "wp-calypso/.nvmrc" }}-{{ checksum "wp-calypso/test/e2e/package.json" }}
-            - v1-npmcache-{{ checksum "wp-calypso/.nvmrc" }}
-            - v1-npmcache
+            - v1-packages-{{ checksum "wp-calypso/.nvmrc" }}-{{ checksum "wp-calypso/yarn.lock" }}-{{ checksum "wp-calypso/test/e2e/package.json" }}
+            - v1-packages-{{ checksum "wp-calypso/.nvmrc" }}-{{ checksum "wp-calypso/yarn.lock" }}
+            - v1-packages-{{ checksum "wp-calypso/.nvmrc" }}
+            - v1-packages
       - run: |
           cd wp-calypso/test/e2e &&
-          CHROMEDRIVER_VERSION=$(<.chromedriver_version) npm ci
+          CHROMEDRIVER_VERSION=$(<.chromedriver_version) yarn --frozen-lockfile
       - save_cache:
-          key: v1-npmcache-{{ checksum "wp-calypso/.nvmrc" }}-{{ checksum "wp-calypso/test/e2e/package.json" }}
+          key: v1-packages-{{ checksum "wp-calypso/.nvmrc" }}-{{ checksum "wp-calypso/yarn.lock" }}-{{ checksum "wp-calypso/test/e2e/package.json" }}
           paths:
-            - "~/.npm"
+            - ~/.cache/yarn
       - run: if [ "$LIVEBRANCHES" = true ]; then ./wait-for-running-branch.sh; fi
-      - run: cd wp-calypso/test/e2e && npm run decryptconfig
+      - run: cd wp-calypso/test/e2e && yarn run decryptconfig
       - run: sudo chmod +x wp-calypso/test/e2e/node_modules/.bin/magellan
       - run: echo running test command "./run.sh -R ${testFlag--C} $RUN_ARGS"
       - run: cd wp-calypso/test/e2e && ./run.sh -R ${testFlag--C} $RUN_ARGS
